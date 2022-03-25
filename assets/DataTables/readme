@@ -1,0 +1,6 @@
+put this code above </body>
+<script>
+    $(document).ready(function(){
+        $('#table-datatable').DataTable();
+    });
+</script>
