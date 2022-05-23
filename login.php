@@ -1,5 +1,5 @@
 <?php
-include "header.php";
+include "./component/header.php";
 
 if(isset($_POST['login'])){
     $username = $_POST['username'];
@@ -36,10 +36,11 @@ if(isset($_POST['login'])){
             <label for="username">Password</label>
             <input type="password" name="password" required="required" class="form-control">
         </div>
-        <div class="form-group mt-4 justify-content-center d-flex">
+        <div class="form-group mt-4 justify-content-between d-flex">
             <input type="submit" value="Login" name="login" class="btn btn-primary">
+            <a href="index.php" class="btn btn-warning text-white">Kembali</a>
         </div>
     </form>
 </div>
 
-<?php include "footer.php" ?>
+<?php include "./component/footlogin.php" ?>

@@ -28,7 +28,7 @@
         <div class="nav-brand align-items-center flex-column d-flex mb-5">
             <img src="../assets/images/favicon.svg" alt="logo">
             <br>
-            <span>Jual Mobil</span>
+            <span>Alwin Motor</span>
         </div>
         <hr>
         <div class="nav-menu text-center">
@@ -42,26 +42,26 @@
                     Merk
                 </div>
             </a>
-            <a href="model.php" >
+            <!-- <a href="model.php" >
                 <div class="nav-items ">
                     Model
                 </div>
-            </a>
-            <a href="penjual.php" >
+            </a> -->
+            <!-- <a href="penjual.php" >
                 <div class="nav-items ">
                     Data Penjual
                 </div>
-            </a>
+            </a> -->
             <a href="mobil.php" >
                 <div class="nav-items ">
                     Data Mobil
                 </div>
             </a>
-            <a href="index.php" >
+            <!-- <a href="index.php" >
                 <div class="nav-items ">
                     Statistik
                 </div>
-            </a>
+            </a> -->
         </div>
         <div class="nav-logout mt-auto justify-content-center d-flex ">
             <a href="logout.php" class="btn btn-sm btn-outline-danger">Logout</a>

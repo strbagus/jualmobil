@@ -60,7 +60,7 @@ function url($url){
             </script>
             <div class="d-flex justify-content-between align-items-center">
                 <h4>Edit Data</h4>
-                <button class="btn btn-sm btn-warning text-white" onclick="popupClose();">Kembali</button>
+                <button class="btn btn-sm btn-warning text-white" onclick="popupClose('penjual');">Kembali</button>
                 <?php
                 ?>
             </div>

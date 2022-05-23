@@ -3,18 +3,27 @@ include "header.php";
 //CRUDelete
 if(isset($_GET['hapus'])){
     $id = $_GET['id'];
+    $img =  $_GET['img'];
     $sqldel = "DELETE FROM tb_merk WHERE merk_id=$id";
     $resultdel = $conn->query($sqldel);
+    unlink("../assets/images/merk/$img");
+
     header("location: merk.php");
     
 }
 //CreateRUD
 if(isset($_POST['tambah'])){
     $nama = $_POST['brand'];
-    $sqltambah = "INSERT INTO tb_merk (merk_nama) VALUES ('$nama')";
+    $filename = $_FILES["logo"]["name"];
+    $tempname = $_FILES["logo"]["tmp_name"];   
+    $folder = "../assets/images/merk/".$filename;
+    $sqltambah = "INSERT INTO tb_merk (merk_nama, merk_gambar) VALUES ('$nama', '$filename')";
     $resulttambah = $conn->query($sqltambah);
-    if(!$resulttambah){
-        echo "Gagal Menambahkan Data";
+    
+    if(move_uploaded_file($tempname, $folder)){
+        if(!$resulttambah){
+            echo "Gagal Menambahkan Data";
+        }
     }
 }
 //CRUpdateD
@@ -70,14 +79,14 @@ if(isset($_POST['ubah'])){
             <button class="btn btn-sm btn-warning text-white" onclick="popupClose()">Kembali</button>
         </div>
         <hr>
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="brand">Nama Merk</label>
                 <input type="text" name="brand" required="required" class="form-control">
             </div>
             <div class="form-group">
                 <label for="logo">Gambar Logo</label>
-                <input type="file" name="logo" class="form-control" id="fileSelect" disabled>
+                <input type="file" name="logo" class="form-control" required>
             </div>
             <div class="d-flex justify-content-center mt-3">
                 <input type="submit" value="Tambah" name="tambah" class="btn btn-primary text-white">
@@ -109,10 +118,15 @@ if(isset($_POST['ubah'])){
                 <tr>
                     <td><?= $no++ ?></td>
                     <td><?= $d['merk_nama'] ?></td>
-                    <td>kosong</td>
+                    <td class="text-center">
+                        <img 
+                            src="../assets/images/merk/<?= $d['merk_gambar']?>" 
+                            alt="<?= $d['merk_gambar']?>"
+                            style="width:32px">    
+                    </td>
                     <td class="d-flex justify-content-evenly">
-                        <a href="merk.php?edit=true&id=<?= $d['merk_id'] ?>" onclick="popupOpen()" class="btn btn-sm btn-warning text-white">Ubah</a>
-                        <a href="merk.php?hapus=true&id=<?= $d['merk_id'] ?>" onclick="return('Yakin akan menghapus data?')" class="btn btn-sm btn-danger text-white">Hapus</a>
+                        <!-- <a href="merk.php?edit=true&id=<?= $d['merk_id'] ?>" onclick="popupOpen()" class="btn btn-sm btn-warning text-white">Ubah</a> -->
+                        <a href="merk.php?hapus=true&id=<?= $d['merk_id'] ?>&img=<?= $d['merk_gambar'] ?>" onclick="return('Yakin akan menghapus data?')" class="btn btn-sm btn-danger text-white">Hapus</a>
                     </td>
                 </tr>
                 <?php

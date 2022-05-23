@@ -8,24 +8,30 @@ if(isset($_GET['hapus'])){
     
 }
 if(isset($_POST['tambah'])){
-    $nama = $_POST['brand'];
-    $sqltambah = "INSERT INTO tb_model (model_nama) VALUES ('$nama')";
+    $merk = $_POST['merk'];
+    $model = $_POST['model'];
+    $sqltambah = "INSERT INTO tb_model (model_merk, model_nama) VALUES ('$merk','$model')";
     $resulttambah = $conn->query($sqltambah);
     if(!$resulttambah){
         echo "Gagal Menambahkan Data";
     }
 }
-// if(isset($_POST['ubah'])){
-//     $id = $_POST['id'];
-//     $brand = $_POST['brand'];
-//     $sqlubah = "UPDATE tb_model SET model_nama='$brand' WHERE model_id='$id'";
-//     $resultubah = $conn->query($sqlubah);
-//     if($resultubah){
-//         header("location: model.php");
-//     }
+if(isset($_POST['ubah'])){
+    $id = $_POST['id'];
+    $merk = $_POST['merk'];
+    $model = $_POST['model'];
+    if(isset($merk)){
+        $sqlubah = "UPDATE tb_model SET model_merk='$merk', model_nama='$model' WHERE model_id='$id'";
+    }else{
+        $sqlubah = "UPDATE tb_model SET model_nama='$model' WHERE model_id='$id'";
+    }
 
-// }
-// SQL
+    $resultubah = $conn->query($sqlubah);
+    if($resultubah){
+        header("location: model.php");
+    }
+
+}
 
     ?>
 <h3 class="text-center">Data Model</h3>
@@ -34,18 +40,18 @@ if(isset($_POST['tambah'])){
 <div id="form-tambah" class="col-md-5 mx-auto bg-light rounded shadow p-4">
     <?php
         if(isset($_GET['edit'])){
-            // $id = $_GET['id'];
-            // $sqlmodel = "SELECT * FROM tb_model WHERE model_id=$id";
-            // $resultmodel = $conn->query($sqlmodel);
-            // $dmodel = $resultmodel->fetch_array();
+            $id = $_GET['id'];
+            $sqlmodel = "SELECT * FROM tb_model JOIN tb_merk ON model_merk=merk_id WHERE model_id=$id";
+            $resultmodel = $conn->query($sqlmodel);
+            $dmodel = $resultmodel->fetch_array();
             ?>
         <script>
             document.getElementById("form-tambah").style.display = "block";
             document.getElementById("form-block").style.display = "block";
-            </script>
+        </script>
             <div class="d-flex justify-content-between align-items-center">
                 <h4>Edit Data</h4>
-                <button class="btn btn-sm btn-warning text-white" onclick="popupClose();">Kembali</button>
+                <button class="btn btn-sm btn-warning text-white" onclick="popupClose('model');">Kembali</button>
                 <?php
                 ?>
             </div>
@@ -53,8 +59,23 @@ if(isset($_POST['tambah'])){
         <form action="" method="post">
             <input type="hidden" name="id" value="<?= $id?>">
             <div class="form-group">
-                <label for="brand">Nama model</label>
-                <input type="text" name="brand" value="<?= $dmodel['model_nama'] ?>" required="required" class="form-control">
+                <label for="brand">Nama Merk</label>
+                <select name="merk"  class="form-control">
+                    <option selected disabled>-- Pilih Merk --</option>
+                    <?php
+                        $sqlmerk = "SELECT * FROM tb_merk";
+                        $resultmerk = $conn->query($sqlmerk);
+                        while($dmerk = $resultmerk->fetch_array()){
+                       ?>
+                        <option value="<?= $dmerk['merk_id'] ?>"><?= $dmerk['merk_nama'] ?></option>
+                         <?php
+                        }
+                    ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="brand">Nama Model</label>
+                <input type="text" name="model" value="<?= $dmodel['model_nama'] ?>" required="required" class="form-control">
             </div>
             <div class="d-flex justify-content-center mt-3">
                 <input type="submit" value="Ubah" name="ubah" class="btn btn-primary text-white">
@@ -75,10 +96,13 @@ if(isset($_POST['tambah'])){
                 <select name="merk" required="required" class="form-control">
                     <option selected disabled>-- Pilih Merk --</option>
                     <?php
+                        $sqlmerk = "SELECT * FROM tb_merk";
+                        $resultmerk = $conn->query($sqlmerk);
+                        while($dmerk = $resultmerk->fetch_array()){
                        ?>
-                        <option value="<?= $dmerk['merk_id'] ?>"><?= $merk['merk_nama'] ?></option>
+                        <option value="<?= $dmerk['merk_id'] ?>"><?= $dmerk['merk_nama'] ?></option>
                          <?php
-                    // }
+                        }
                     ?>
                 </select>
             </div>
