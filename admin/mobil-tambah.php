@@ -55,7 +55,14 @@ if(isset($_POST['tambahMobil'])){
         </div>
         <div class="form-group">
             <label for="type">Type</label>
-            <input type="text" class="form-control" name="type" required="required">
+            <select name="type" class="form-control" required>
+                <option selected disabled>-- Pilih Type --</option>
+                <option value="SUV">SUV</option>
+                <option value="MPV">MPV</option>
+                <option value="HatchBack">HatchBack</option>
+                <option value="Sedan">Sedan</option>
+                <option value="Pickup">Pickup</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="transmisi">Transmisi</label>
