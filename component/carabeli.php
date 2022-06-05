@@ -1,7 +1,7 @@
 
 <div class="container">
     <h2 class="text-center mt-3">Cara Beli</h2>
-    <div class="d-flex justify-content-evenly">
+    <div class="d-flex justify-content-evenly flex-wrap">
         <?php
         $caraTitle = ["Temukan Mobil Anda", "Tes Drive", "Pengiriman Langsung Ke Rumah", "Pembelian Tanpa Khawatir"];
         $caraDesc = [

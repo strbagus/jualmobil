@@ -16,20 +16,19 @@ $rmobil = $conn->query($sqlmobil);
 <div 
 class="banner-img" 
 style="
-    height: 300px;
     background-color: #002f49;
     width: 100%;
 ">
     <img 
-    src="" 
+    src="./assets/images/banner.jpg" 
     alt="Gambar Banner"
     style="
-        height: 300px; 
         width: 100%
     ">
 </div>
 <div class="container">
     <div class="filter-search rounded p-4 shadow" style="
+        position: relative;
         margin-top: -50px;
         background-color: #d2dadd;">
         <h4>Beli Mobil</h4>
@@ -58,7 +57,7 @@ style="
                     <a href="etalase.php?merk=<?= $dmerk["merk_id"] ?>" 
                         class="mobil-merk d-flex flex-column mx-4 text-decoration-none">
                         <img
-                            src="./assets/images/favicon.svg" 
+                            src="./assets/images/merk/<?= $dmerk['merk_gambar'] ?>" 
                             alt="merk mobil logo"
                             style="height: 64px"
                             >
@@ -68,21 +67,9 @@ style="
             }
             ?>
         </div>
-        <div class="filter-harga d-flex mt-2 justify-content-center">
-            <?php 
-            $rentangHarga = ["Dibawah Rp 100jt","Rp 100jt - Rp 200jt","Rp 200jt - Rp 300jt","Diatas Rp 300jt",];
-            for ($i=0; $i < count($rentangHarga)  ; $i++) { 
-            ?>
-                <a href="etalase.php?harga=<?= $i ?>" 
-                    class="py-1 px-3 mx-4 bg-white text-decoration-none" 
-                    style="border-radius: 50px">
-                    <?= $rentangHarga[$i] ?>
-                </a>
-                <?php
-            }
-            ?>
-            
-        </div>
+        <?php
+        include "./component/filterharga.php"
+        ?>
     </div>
 </div>
 <div 

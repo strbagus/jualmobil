@@ -12,7 +12,7 @@
     <script type="text/javascript" src="../assets/DataTables/datatables.js"></script>
     <script type="text/javascript" src="../assets/DataTables/jquery.dataTables.js"></script>
     <link rel="stylesheet" type="text/css" href="../assets/DataTables/datatables.css">
-    <link rel="icon" href="../assets/images/favicon.svg">
+    <link rel="icon" href="../assets/images/logo.svg">
     <link rel="stylesheet" href="../assets/css/style.css">
     <script src="../assets/js/function.js"></script>
     <?php
@@ -25,10 +25,8 @@
 </head>
 <body>
     <div class="sidenav bg-dark text-white ">
-        <div class="nav-brand align-items-center flex-column d-flex mb-5">
-            <img src="../assets/images/favicon.svg" alt="logo">
-            <br>
-            <span>Alwin Motor</span>
+        <div class="nav-brand flex-column d-flex my-5">
+            <img src="../assets/images/logo.svg" alt="logo" style="width: auto;">
         </div>
         <hr>
         <div class="nav-menu text-center">
@@ -55,6 +53,11 @@
             <a href="mobil.php" >
                 <div class="nav-items ">
                     Data Mobil
+                </div>
+            </a>
+            <a href="setting.php" >
+                <div class="nav-items ">
+                    Setting
                 </div>
             </a>
             <!-- <a href="index.php" >

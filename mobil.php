@@ -73,6 +73,22 @@ $dmobil = $rmobil->fetch_assoc();
             </div>
         </div>
     </div>
+    <?php
+    if($dmobil['mobil_deskripsi'] != ""){
+        ?>
+        <div class="row mt-5">
+            <h3>Informasi Tambahan</h3>
+            <hr>
+            <div class="col-md-6">
+                <p>
+                    <?= $dmobil['mobil_deskripsi'] ?>
+                </p>
+            </div>
+        </div>
+        
+        <?php
+    }
+    ?>
 </div>
 <?php
 include "./component/footer.php";

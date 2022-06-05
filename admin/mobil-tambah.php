@@ -71,7 +71,7 @@ if(isset($_POST['tambahMobil'])){
         </div>
         <div class="form-group">
             <label for="bahanbakar">Bahan Bakar</label>
-            <select class="form-control" name="bahanbakar" required="required">
+            <select class="form-control" name="bahanbakar" required>
                 <option selected disabled>--Pilih Bahan Bakar--</option>
                 <option value="Bensin">Bensin</option>
                 <option value="Solar">Solar</option>

@@ -29,6 +29,17 @@ $rmobil = $conn->query($sqlmobil);
 
 ?>
 <div class="container mt-5">
+    <?php 
+    include "./component/filterharga.php";
+    if(isset($_GET['merk']) || isset($_GET['harga']) ){
+    ?>
+        <div class="d-flex justify-content-end">
+            <a href="etalase.php" class="btn btn-sm btn-primary">Hapus Filter</a>
+        </div>
+    <?php
+    }
+    ?>
+    <hr>
     <h3>Mobil Tersedia |</h3>
     <div class="d-flex justify-content-center flex-wrap mt-3">
         <?php
