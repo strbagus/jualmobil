@@ -15,7 +15,7 @@
                 </div>
                 <div class="col-md-4 d-flex flex-column text-center">
                     <h5 class="text-secondary">Bantuan</h5>
-                    <a href="fag.php" class="text-white text-decoration-none">FAQ</a>
+                    <a href="faq.php" class="text-white text-decoration-none">FAQ</a>
                     <!-- <a href="#" class="text-white text-decoration-none">Hubungi Kami</a> -->
                     <a href="https://goo.gl/maps/nDqnjcCiMHdL69qBA" class="text-white text-decoration-none">Lokasi Kami</a>
                 </div>
