@@ -1,5 +1,13 @@
 <?php 
 include "header.php";
+if(isset($_GET['hapus'])){
+    $id = $_GET['hapus'];
+    $sqldel = "DELETE FROM tb_mobil WHERE mobil_id='$id'";
+    $rdel = $conn->query($sqldel);
+    if($rdel){
+        header('location: mobil.php');
+    }
+}
 ?>
 
 <h3 class="text-center">Data Mobil</h3>
@@ -30,7 +38,7 @@ include "header.php";
                     <td><?= $d['mobil_status'] ?></td>
                     <td class="d-flex justify-content-evenly">
                         <a href="detail.php?id=<?= $d['mobil_id'] ?>" class="btn btn-sm btn-primary">Detail</a>
-                        <a href="#" class="btn btn-sm btn-danger">Hapus</a>
+                        <a href="mobil.php?hapus=<?= $d['mobil_id'] ?>" class="btn btn-sm btn-danger">Hapus</a>
                     </td>
                 </tr>
                 <?php
