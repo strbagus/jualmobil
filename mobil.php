@@ -34,7 +34,8 @@ $dmobil = $rmobil->fetch_assoc();
                     style="background-color: #c9c9c9">
                     Alwin Motor, Sleman, Daerah Istimewa Yogyakarta 55584
                 </div>
-                <a href="https://wa.me/+6281229895577" 
+                <a href="https://wa.me/+6281804280777" 
+                    target="_blank"
                     class="text-warning btn mt-2 fw-bold"
                     style="background-color: #002f49;">Cek Sekarang</a>
             </div>

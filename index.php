@@ -67,6 +67,7 @@ style="
             }
             ?>
         </div>
+        <!-- TODO add filter type -->
         <?php
         include "./component/filterharga.php"
         ?>
@@ -86,13 +87,15 @@ style="
                 ">
             Beli Mobil Alwin Motor
         </div>
-        <div class="d-flex mt-2 justify-content-center fw-bold ">
+        <div class="d-flex mt-2 fw-bold flex-wrap">
         <?php 
         $mobilListSubTitle = ["175 Titik Inspeksi", "Harga Pasti, Tidak Ada Biaya Tersembunyi", "Garansi Satu Tahun", "Jaminan 5 Hari Uang Kembali"];
         for ($i=0; $i < count($mobilListSubTitle)  ; $i++) { 
             ?>
-            <div class="mx-4" style="color: #786849;">
-                <?= $mobilListSubTitle[$i] ?>
+            <div class="col-md-3 px-4 text-center">
+                <div style="color: #786849;">
+                    <?= $mobilListSubTitle[$i] ?>
+                </div>
             </div>
             
             <?php
@@ -100,7 +103,7 @@ style="
         ?>
         </div>
         <!-- CATALOG MOBIL -->
-        <div class="d-flex justify-content-center mt-3">
+        <div class="d-flex justify-content-center flex-wrap mt-3">
             <?php
             while($dmobil = $rmobil->fetch_array()){
                 ?>

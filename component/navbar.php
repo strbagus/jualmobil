@@ -1,3 +1,8 @@
+<div class="bg-warning">
+  <div class="container d-flex justify-content-end" >
+    <a class="text-decoration-none text-black" href="https://wa.me/+6281804280777" target="blank">0818-0428-0777</a>
+  </div>
+</div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
     <img src="../assets/images/logo.svg" alt="Logo Alwin Motor" style="height: 32px;">
@@ -14,10 +19,7 @@
               <a class="nav-link <?php if($pages == "etalase"){ echo "active"; }   ?>" href="etalase.php">Beli Mobil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php if($pages == "faq"){ echo "active"; }   ?>" href="#faq.php">FAQ</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link <?php if($pages == "tentang"){ echo "active"; }   ?>" href="#tentang.php">Tentang</a>
+              <a class="nav-link <?php if($pages == "faq"){ echo "active"; }   ?>" href="faq.php">FAQ</a>
             </li>
             <li class="nav-item">
               <a class="nav-link <?php if($pages == "dealer"){ echo "active"; }   ?>" href="#dealer.php">Dealer</a>

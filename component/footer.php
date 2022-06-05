@@ -15,15 +15,9 @@
                 </div>
                 <div class="col-md-4 d-flex flex-column text-center">
                     <h5 class="text-secondary">Bantuan</h5>
-                    <a href="etalase.php" class="text-white text-decoration-none">FAQ</a>
-                    <a href="#" class="text-white text-decoration-none">Hubungi Kami</a>
+                    <a href="fag.php" class="text-white text-decoration-none">FAQ</a>
+                    <!-- <a href="#" class="text-white text-decoration-none">Hubungi Kami</a> -->
                     <a href="https://goo.gl/maps/nDqnjcCiMHdL69qBA" class="text-white text-decoration-none">Lokasi Kami</a>
-                </div>
-                <div class="col-md-4 d-flex flex-column text-center">
-                    <h5 class="text-secondary">Tentang Kami</h5>
-                    <a href="tentang.php" class="text-white text-decoration-none">Tentang Kami</a>
-                    <a href="product.php" class="text-white text-decoration-none">Mobil Bekas Alwin Motor</a>
-                    <a href="#" class="text-white text-decoration-none">Ulasan Mobil</a>
                 </div>
             </div>
         </div>
