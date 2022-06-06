@@ -73,19 +73,23 @@ style="
             ?>
         </div>
         <!-- TODO add filter type -->
-        <!-- <div class="d-flex flex-wrap my-3 justify-content-center overflow-auto">
+        <div class="d-flex flex-wrap my-3 justify-content-center overflow-auto">
             <?php
-            // $type = ['SUV', 'MPV', 'HatchBack', 'Sedan', 'Pickup'];
+            $type = ['SUV', 'MPV', 'HatchBack', 'Sedan', 'Pickup'];
 
-            // for($i = 0; $i < count($type); $i++ ){
-            //     ?>
-            //         <div class="bg-warning mx-1">
-            //             <?= $type[$i] ?>
-            //         </div>
-            //     <?php
-            // }
+            for($i = 0; $i < count($type); $i++ ){
+                ?>
+                    <a href="etalase.php?type=<?= $type[$i] ?>"
+                        class="text-black text-decoration-none"
+                    >
+                        <div class="bg-warning m-1 px-2 rounded">
+                            <?= $type[$i] ?>
+                        </div>
+                    </a>
+                <?php
+            }
             ?>
-        </div> -->
+        </div>
         <?php
         include "./component/filterharga.php"
         ?>

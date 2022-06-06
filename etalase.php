@@ -2,10 +2,16 @@
 include "./component/header.php";
 $pages = "etalase"; 
 include "./component/navbar.php";
+$msg = "";
 
-if(isset($_GET['merk'])){
+if(isset($_GET['type'])){
+    $ftype = $_GET['type'];
+    $filter = "WHERE mobil_type='$ftype'";
+    $msg = "Filter type $ftype";
+}else if(isset($_GET['merk'])){
     $fmerk = $_GET['merk'];
     $filter = "WHERE mobil_merk='$fmerk'";
+    $msg = "Filter merk $fmerk";
 }else if(isset($_GET['harga'])){
     if($_GET['harga'] == 0){
         $filter = "WHERE mobil_harga < 100000000";
@@ -16,6 +22,7 @@ if(isset($_GET['merk'])){
     }else if($_GET['harga'] == 3){
         $filter = "WHERE mobil_harga > 300000000";
     }
+    $msg = "Filter harga";
 }else{
     $filter = "";
 }
@@ -26,12 +33,11 @@ $sqlmobil = "SELECT * FROM
                 $filter 
                 ORDER BY mobil_id ASC";
 $rmobil = $conn->query($sqlmobil);
-
 ?>
 <div class="container mt-5">
     <?php 
     include "./component/filterharga.php";
-    if(isset($_GET['merk']) || isset($_GET['harga']) ){
+    if(isset($_GET['merk']) || isset($_GET['harga']) || isset($_GET['type']) ){
     ?>
         <div class="d-flex justify-content-end">
             <a href="etalase.php" class="btn btn-sm btn-primary">Hapus Filter</a>
@@ -41,8 +47,14 @@ $rmobil = $conn->query($sqlmobil);
     ?>
     <hr>
     <h3>Mobil Tersedia |</h3>
+    <span><?= $msg ?></span>
     <div class="d-flex justify-content-center flex-wrap mt-3">
         <?php
+        if($rmobil->num_rows<1){
+            ?>
+                <h6>Tidak Ada Yang Sesuai</h6>
+            <?php
+        }
         while($dmobil = $rmobil->fetch_array()){
             ?>
             <a class="col-md-3 p-2 text-decoration-none" href="mobil.php?id=<?= $dmobil['mobil_id'] ?>">
@@ -75,8 +87,8 @@ $rmobil = $conn->query($sqlmobil);
         }  
         ?>
     </div>
+    <hr>
 </div>
-
 <?php
 include "./component/carabeli.php";
 ?>
