@@ -11,6 +11,11 @@ $sqlmobil = "SELECT * FROM
                 tb_mobil.mobil_id = tb_mobil_gambar.mg_mobil 
                 ORDER BY mobil_id DESC LIMIT 4";
 $rmobil = $conn->query($sqlmobil);
+
+
+$tban = "SELECT * FROM tb_tema WHERE tema_id='3'";
+$rban = $conn->query($tban);
+$dban = $rban->fetch_assoc();
 ?>
 
 <div 
@@ -20,7 +25,7 @@ style="
     width: 100%;
 ">
     <img 
-    src="./assets/images/banner.jpg" 
+    src="./assets/images/tema/<?= $dban['tema_filename'] ?>" 
     alt="Gambar Banner"
     style="
         width: 100%
@@ -68,6 +73,19 @@ style="
             ?>
         </div>
         <!-- TODO add filter type -->
+        <!-- <div class="d-flex flex-wrap my-3 justify-content-center overflow-auto">
+            <?php
+            // $type = ['SUV', 'MPV', 'HatchBack', 'Sedan', 'Pickup'];
+
+            // for($i = 0; $i < count($type); $i++ ){
+            //     ?>
+            //         <div class="bg-warning mx-1">
+            //             <?= $type[$i] ?>
+            //         </div>
+            //     <?php
+            // }
+            ?>
+        </div> -->
         <?php
         include "./component/filterharga.php"
         ?>

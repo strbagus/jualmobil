@@ -11,12 +11,15 @@
     <script type="text/javascript" src="assets/DataTables/datatables.js"></script>
     <script type="text/javascript" src="assets/DataTables/jquery.dataTables.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/DataTables/datatables.css">
-    <link rel="icon" href="../assets/images/logo.svg">
     
-
     <?php
         include "config.php";
+    
+        $tfav = "SELECT * FROM tb_tema WHERE tema_id='1'";
+        $rfav = $conn->query($tfav);
+        $dfav = $rfav->fetch_assoc();
     ?>
+    <link rel="icon" href="../assets/images/tema/<?= $dfav['tema_filename'] ?>">
     <style>
         body{
             background-color: #f0f0f0;

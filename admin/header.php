@@ -12,7 +12,6 @@
     <script type="text/javascript" src="../assets/DataTables/datatables.js"></script>
     <script type="text/javascript" src="../assets/DataTables/jquery.dataTables.js"></script>
     <link rel="stylesheet" type="text/css" href="../assets/DataTables/datatables.css">
-    <link rel="icon" href="../assets/images/logo.svg">
     <link rel="stylesheet" href="../assets/css/style.css">
     <script src="../assets/js/function.js"></script>
     <?php
@@ -21,12 +20,21 @@
         if($_SESSION['status']!="login"){
             header("location: ../login.php?alert=login_belum");
         }
-    ?>
+        $tfav = "SELECT * FROM tb_tema WHERE tema_id='1'";
+        $rfav = $conn->query($tfav);
+        $dfav = $rfav->fetch_assoc();
+
+        
+        $tlog = "SELECT * FROM tb_tema WHERE tema_id='2'";
+        $rlog = $conn->query($tlog);
+        $dlog = $rlog->fetch_assoc();
+        ?>
+    <link rel="icon" href="../assets/images/tema/<?= $dfav['tema_filename'] ?>">
 </head>
 <body>
     <div class="sidenav bg-dark text-white ">
         <div class="nav-brand flex-column d-flex my-5">
-            <img src="../assets/images/logo.svg" alt="logo" style="width: auto;">
+            <img src="../assets/images/tema/<?= $dlog['tema_filename']?>" alt="logo" style="width: auto;">
         </div>
         <hr>
         <div class="nav-menu text-center">
@@ -40,16 +48,6 @@
                     Merk
                 </div>
             </a>
-            <!-- <a href="model.php" >
-                <div class="nav-items ">
-                    Model
-                </div>
-            </a> -->
-            <!-- <a href="penjual.php" >
-                <div class="nav-items ">
-                    Data Penjual
-                </div>
-            </a> -->
             <a href="mobil.php" >
                 <div class="nav-items ">
                     Data Mobil
@@ -60,11 +58,6 @@
                     Setting
                 </div>
             </a>
-            <!-- <a href="index.php" >
-                <div class="nav-items ">
-                    Statistik
-                </div>
-            </a> -->
         </div>
         <div class="nav-logout mt-auto justify-content-center d-flex ">
             <a href="logout.php" class="btn btn-sm btn-outline-danger">Logout</a>
